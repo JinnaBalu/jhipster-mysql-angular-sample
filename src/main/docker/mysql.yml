@@ -1,9 +1,17 @@
 version: '2'
+networks:
+  stack:
+    external:
+      name: stack
+volumes:
+  sample_mysqldata: {}
 services:
   sample-mysql:
     image: mysql:8.0.18
-    # volumes:
-    #     - ~/volumes/jhipster/sample/mysql/:/var/lib/mysql/
+    container_name: mysql
+    volumes:
+      - sample_mysqldata:/var/lib/mysql/
+    networks: ['stack']
     environment:
       - MYSQL_USER=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes

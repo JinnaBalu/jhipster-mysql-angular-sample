@@ -19,6 +19,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
+import co.elastic.apm.attach.ElasticApmAttacher;
 
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
@@ -59,6 +60,7 @@ public class SampleApp implements InitializingBean {
      */
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(SampleApp.class);
+        ElasticApmAttacher.attach();
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);

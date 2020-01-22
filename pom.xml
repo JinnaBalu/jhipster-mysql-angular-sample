@@ -25,6 +25,7 @@
         <java.version>1.8</java.version>
         <node.version>v12.13.1</node.version>
         <npm.version>6.13.4</npm.version>
+        <elastic-apm.version>1.12.0</elastic-apm.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
@@ -315,6 +316,11 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+            <groupId>co.elastic.apm</groupId>
+            <artifactId>apm-agent-attach</artifactId>
+            <version>${elastic-apm.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
